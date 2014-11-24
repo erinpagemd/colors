@@ -3,7 +3,12 @@ $(document).ready(init);
 function init(){
   $('body').on('click', '.picker', paintBackground);
   $('#addColor').click(addColor);
+  $('body').on('click', '#submit', submitTime);
+}
 
+var time = 1000;
+function submitTime(){
+  time = $('#flashTimer').val();
   startTimer();
 }
 
@@ -15,8 +20,7 @@ function startTimer(){
     var alpha = Math.random();
     var color = 'rgba(' + red +', ' + green + ', ' + blue + ', ' + alpha +')';
     $('body').css('background-color', color);
-    console.log(color);
-  }, 100);
+  }, time);
 }
 
 function addColor(){
